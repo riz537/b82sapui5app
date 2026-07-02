@@ -1,0 +1,9 @@
+<mvc:View controllerName="com.demo.b82sapui5app.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page  title="I am View2" showNavButton="true" navButtonPress="onBackPress">
+     <content>
+      
+     </content>
+    </Page>
+</mvc:View>
