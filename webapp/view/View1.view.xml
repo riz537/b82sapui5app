@@ -17,6 +17,7 @@
          <Bar >
             <contentLeft>
                <Button id="oBtnRed" text="Red" type="" ></Button>
+               <Button id="oBtnDummy" text="Red" type="" ></Button>
             </contentLeft>
             <contentMiddle>
                <Button id="oBtnBlue" text="Blue" type="" ></Button>
