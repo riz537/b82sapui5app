@@ -1,30 +1,71 @@
 <mvc:View controllerName="com.demo.b82sapui5app.controller.View1"
    xmlns:mvc="sap.ui.core.mvc"
-   xmlns="sap.m">
+   xmlns="sap.m"
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
    <Page title="I am View1">
       <content>
-         <Text id="oTxtWelcome" text="Welcome to SAPUI5" textAlign="Center" width="100%" class="sapMH1FontSize"></Text>
-         <Label text="Enter you name" class="sapUiSmallMarginBegin sapUiTinyMarginTop"></Label>
-         <Input id="oIpName" width="30%" class="sapUiTinyMarginBegin" value=""></Input>
-         <Label text="Alignment" class="sapUiSmallMarginBegin sapUiTinyMarginTop"></Label>
-         <Input id="oIpAlignment" width="40%" class="sapUiTinyMarginBegin" value=""></Input>
-         <Label text="Which signal you want to turn on?" class="sapUiSmallMarginBegin sapUiTinyMarginTop"></Label>
-         <Input id="oIpSignal" width="30%" class="sapUiTinyMarginBegin" value=""></Input>
+         <f:SimpleForm title="Employee Details(1 field per row)" editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="12" emptySpanXL="6" emptySpanL="6" emptySpanM="6">
+            <f:content>
+               <Label text="Employee Id"></Label>
+               <Input ></Input>
+               <Label text="Name"></Label>
+               <Input ></Input>
+               <Label text="Designation"></Label>
+               <Input></Input>
+               <Label text="Skill"></Label>
+               <Input ></Input>
+               <Label text="Email Id"></Label>
+               <Input ></Input>
+               <Label text="Status"></Label>
+               <Input ></Input>
+            </f:content>
+         </f:SimpleForm>
+           <f:SimpleForm title="Employee Details(2 fields per row)" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" emptySpanXL="0" emptySpanL="0" emptySpanM="0"
+           columnsXL="3" columnsL="3" columnsM="3" >
+            <f:content>
+               <core:Title text="Basic Details"></core:Title>
+               <Label text="Employee Id"></Label>
+               <Input ></Input>
+               <Label text="Name"></Label>
+               <Input ></Input>
+               <core:Title text="More Details"></core:Title>
+               <Label text="Designation"></Label>
+               <Input></Input>
+             
+               <Label text="Skill"></Label>
+               <Input ></Input>
+               <core:Title text="Contact Details"></core:Title>
+               <Label text="Email Id"></Label>
+               <Input ></Input>
+               <Label text="Status"></Label>
+               <Input ></Input>
+            </f:content>
+         </f:SimpleForm>
 
-         <Button id="oBtnSubmit" text="Submit" type="Emphasized" press="onSubmit" class="sapUiTinyMarginBegin"></Button>
+          <f:SimpleForm title="Employee Details (Display mode)" editable="false" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="12" emptySpanXL="6" emptySpanL="6" emptySpanM="6">
+            <f:content>
+               <Label text="Employee Id"></Label>
+               <Text text="234523523"></Text>
+               <Label text="Name"></Label>
+               <Text text="John Doe"></Text>
+               <Label text="Designation"></Label>
+               <Text text="Software Engineer"></Text>
+               <Label text="Skill"></Label>
+               <Text text="JavaScript"></Text>
+               <Label text="Email Id"></Label>
+               <Text text="john.doe@company.com"></Text>
+               <Label text="Status"></Label>
+               <Text text="Active"></Text>
+            </f:content>
+         </f:SimpleForm>
+
+
+
       </content>
       <footer>
          <Bar >
-            <contentLeft>
-               <Button id="oBtnRed" text="Red" type="" ></Button>
-               <Button id="oBtnDummy" text="Red" type="" ></Button>
-            </contentLeft>
-            <contentMiddle>
-               <Button id="oBtnBlue" text="Blue" type="" ></Button>
-            </contentMiddle>
-            <contentRight>
-               <Button id="oBtnGreen" text="Green" type="" ></Button>
-            </contentRight>
+
 
          </Bar>
       </footer>
