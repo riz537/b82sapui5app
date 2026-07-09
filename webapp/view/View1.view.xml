@@ -6,100 +6,28 @@
    xmlns:core="sap.ui.core">
    <Page title="I am View1">
       <content>
-
-         <ObjectHeader icon="sap-icon://employee" title="Rizwan" number="1000000" numberUnit="INR" backgroundDesign="Solid">
-            <attributes>
-               <ObjectAttribute title="Employee ID" text="1000101"></ObjectAttribute>
-               <ObjectAttribute title="Designation" text="Developer"></ObjectAttribute>
-               <ObjectAttribute title="Skill" text="SAPUI5 consultant"></ObjectAttribute>
-            </attributes>
-            <statuses>
-               <ObjectStatus text="CONTRACT EMPLOYEE" state="Error" inverted="true"></ObjectStatus>
-               <ProgressIndicator percentValue="30%" displayValue="3 out of 10" state="Error"></ProgressIndicator>
-            </statuses>
-         </ObjectHeader>
-         <IconTabBar >
-            <items>
-               <IconTabFilter icon="sap-icon://employee" text="Employee Details">
-                  <f:SimpleForm title="Employee Details(1 field per row)" editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="12" emptySpanXL="6" emptySpanL="6" emptySpanM="6">
-                     <f:content>
-                        <Label text="Employee Id"></Label>
-                        <Input ></Input>
-                        <Label text="Name"></Label>
-                        <Input ></Input>
-                        <Label text="Designation"></Label>
-                        <Input></Input>
-                        <Label text="Skill"></Label>
-                        <Input ></Input>
-                        <Label text="Email Id"></Label>
-                        <Input ></Input>
-                        <Label text="Status"></Label>
-                        <Input ></Input>
-                     </f:content>
-                  </f:SimpleForm>
-               </IconTabFilter>
-
-               <IconTabFilter icon="sap-icon://notes" text="Employee Salary">
-                  <f:SimpleForm title="Employee Details(1 field per row)" editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="12" emptySpanXL="6" emptySpanL="6" emptySpanM="6">
-                     <f:content>
-                        <Label text="Employee Id"></Label>
-                        <Input ></Input>
-                        <Label text="Name"></Label>
-                        <Input ></Input>
-                        <Label text="Designation"></Label>
-                        <Input></Input>
-                        <Label text="Skill"></Label>
-                        <Input ></Input>
-                        <Label text="Email Id"></Label>
-                        <Input ></Input>
-                        <Label text="Status"></Label>
-                        <Input ></Input>
-                     </f:content>
-                  </f:SimpleForm>
-               </IconTabFilter>
-            </items>
-         </IconTabBar>
-
-
-
-         <!-- <FlexBox justifyContent="Center" alignItems="Center" height="100%">
-            <Button icon="sap-icon://accept" text="Go" type="Accept"></Button>
-            <Button icon="sap-icon://reset" text="Reset" type="Reject"></Button>
-            <Button icon="sap-icon://accept" text="Go" type="Accept"></Button>
-            <Button icon="sap-icon://reset" text="Reset" type="Reject"></Button>
-         </FlexBox>
-          -->
-
-
-
-
-         <!-- <f:SimpleForm title="Employee Details(1 field per row)" editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="12" emptySpanXL="6" emptySpanL="6" emptySpanM="6">
+         <f:SimpleForm title="Employee Details(1 field per row)" editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="12" emptySpanXL="6" emptySpanL="6" emptySpanM="6">
             <f:content>
-               <Label text="Employee Id"></Label>
-               <Input ></Input>
-               <Label text="Name"></Label>
-               <Input ></Input>
-               <Label text="Designation"></Label>
-               <Input></Input>
-               <Label text="Skill"></Label>
-               <Input ></Input>
-               <Label text="Email Id"></Label>
-               <Input ></Input>
-               <Label text="Status"></Label>
-               <Input ></Input>
+               <Label text="Employee Id" required="true"></Label>
+               <Input id="oIpEmpId"></Input>
+               <Label text="Name" required="true"></Label>
+               <Input id="oIpName"></Input>
+               <Label text="Designation" required="true"></Label>
+               <Input id="oIpDesig"></Input>
+               <Label text="Skill" required="true"></Label>
+               <Input id="oIpSkill"></Input>
+               <Label text="Email Id" required="true"></Label>
+               <Input id="oIpEmail"></Input>
+               <Label text="Status" required="true"></Label>
+               <Input id="oIpStatus"></Input>
             </f:content>
-         </f:SimpleForm> -->
-
-
-
-
-
-
+         </f:SimpleForm>
       </content>
       <footer>
          <Bar >
-
-
+            <contentRight>
+               <Button text="Submit" press="onSubmit" type="Emphasized"></Button>
+            </contentRight>
          </Bar>
       </footer>
    </Page>
