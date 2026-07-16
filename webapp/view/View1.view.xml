@@ -6,22 +6,39 @@
    xmlns:core="sap.ui.core">
    <Page title="I am View1">
       <content>
-         <f:SimpleForm title="Employee Details(1 field per row)" editable="true" layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="12" emptySpanXL="6" emptySpanL="6" emptySpanM="6">
-            <f:content>
-               <Label text="Employee Id" required="true"></Label>
-               <Input id="oIpEmpId"></Input>
-               <Label text="Name" required="true"></Label>
-               <Input id="oIpName"></Input>
-               <Label text="Designation" required="true"></Label>
-               <Input id="oIpDesig"></Input>
-               <Label text="Skill" required="true"></Label>
-               <Input id="oIpSkill"></Input>
-               <Label text="Email Id" required="true"></Label>
-               <Input id="oIpEmail"></Input>
-               <Label text="Status" required="true"></Label>
-               <Input id="oIpStatus"></Input>
-            </f:content>
-         </f:SimpleForm>
+         <Table class="sapUiSmallMargin" width="auto" items="{oModel>/EmployeeSet}">
+            <headerToolbar>
+               <Toolbar >
+                  <Title text="Employee Details"></Title>
+               </Toolbar>
+            </headerToolbar>
+            <columns>
+               <Column>
+                  <Text text="Employee ID"></Text>
+               </Column>
+               <Column>
+                  <Text text="Name"></Text>
+               </Column>
+               <Column>
+                  <Text text="Designation"></Text>
+               </Column>
+               <Column>
+                  <Text text="Email"></Text>
+               </Column>
+               <Column>
+                  <Text text="Status"></Text>
+               </Column>
+            </columns>
+            <items>
+               <ColumnListItem >
+                  <Text text="{oModel>Empid}"></Text>
+                  <Text text="{oModel>Name}"></Text>
+                  <Text text="{oModel>Desig}"></Text>
+                  <Text text="{oModel>Email}"></Text>
+                  <Text text="{oModel>Status}"></Text>
+               </ColumnListItem>
+            </items>
+         </Table>
       </content>
       <footer>
          <Bar >
