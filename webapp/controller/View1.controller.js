@@ -1,11 +1,13 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
-    "sap/ui/model/json/JSONModel"
-], (Controller, MessageBox, JSONModel) => {
+    "sap/ui/model/json/JSONModel",
+    "com/demo/b82sapui5app/model/formatter"
+], (Controller, MessageBox, JSONModel, formatter) => {
     "use strict";
 
     return Controller.extend("com.demo.b82sapui5app.controller.View1", {
+        f:formatter,
         onInit() {
             var oModel = this.getOwnerComponent().getModel("oModel");
             var empModel = new JSONModel();

@@ -6,7 +6,7 @@
    xmlns:core="sap.ui.core">
    <Page title="I am View1">
       <content>
-         <f:SimpleForm id="idSimpleForm" title="Multi value UI elements Demo" layout="ResponsiveGridLayout" editable="true" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+         <!-- <f:SimpleForm id="idSimpleForm" title="Multi value UI elements Demo" layout="ResponsiveGridLayout" editable="true" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
             <f:content>
                <Label text="I am a Select Box"></Label>
                <Select id="oSel" items="{oModel>/EmployeeSet}" change="onSelectChange">
@@ -34,10 +34,10 @@
                </RadioButtonGroup>
 
             </f:content>
-         </f:SimpleForm>
+         </f:SimpleForm> -->
 
 
-         <!-- <Table class="sapUiSmallMargin" width="auto" items="{oModel>/EmployeeSet}">
+         <Table class="sapUiSmallMargin" width="auto" items="{oModel>/EmployeeSet}">
             <headerToolbar>
                <Toolbar >
                   <Title text="Employee Details"></Title>
@@ -64,12 +64,12 @@
                <ColumnListItem >
                   <Text text="{oModel>Empid}"></Text>
                   <Text text="{oModel>Name}"></Text>
-                  <Text text="{oModel>Desig}"></Text>
-                  <Text text="{oModel>Email}"></Text>
-                  <Text text="{oModel>Status}"></Text>
+                  <Text text="{path:'oModel>Desig', formatter:'.f.formatDesig'}"></Text>
+                  <Text text="{oModel>Email}" ></Text>
+                  <ObjectStatus text="{oModel>Status}" state="{path:'oModel>Status', formatter:'.f.formatStatus'}" inverted="true" icon="{path:'oModel>Status', formatter:'.f.formatIcon'}"></ObjectStatus>
                </ColumnListItem>
             </items>
-         </Table> -->
+         </Table>
 
       </content>
       <footer>
