@@ -6,38 +6,16 @@
    xmlns:core="sap.ui.core">
    <Page title="I am View1">
       <content>
-         <!-- <f:SimpleForm id="idSimpleForm" title="Multi value UI elements Demo" layout="ResponsiveGridLayout" editable="true" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+         <f:SimpleForm id="idSimpleForm" title="Multi value UI elements Demo" layout="ResponsiveGridLayout" editable="true" labelSpanL="3" labelSpanM="3" emptySpanL="5" emptySpanM="5" >
             <f:content>
-               <Label text="I am a Select Box"></Label>
-               <Select id="oSel" items="{oModel>/EmployeeSet}" change="onSelectChange">
-                  <items>
-                     <core:Item text="{oModel>Name}" key="{oModel>Name}"></core:Item>
-                  </items>
-               </Select>
-               <Label text="I am a ComboBox"></Label>
-               <ComboBox id="oCB" items="{oModel>/EmployeeSet}" selectionChange="onSelFromCB">
-                  <items>
-                     <core:Item text="{oModel>Name}" key="{oModel>Name}"></core:Item>
-                  </items>
-               </ComboBox>
-               <Label text="I am a MultiComboBox"></Label>
-               <MultiComboBox id="oMCB" items="{oModel>/EmployeeSet}" showSelectAll="true" selectionFinish="onSelFromMCB">
-                  <items>
-                     <core:Item text="{oModel>Name}" key="{oModel>Name}"></core:Item>
-                  </items>
-               </MultiComboBox>
-               <Label text="I am a radio button group"></Label>
-               <RadioButtonGroup id="oRBG" buttons="{oModel>/EmployeeSet}" columns="5" selectedIndex="1" select="onSelectFromRBG">
-                  <buttons>
-                     <RadioButton text="{oModel>Name}" ></RadioButton>
-                  </buttons>
-               </RadioButtonGroup>
+               <Label text="Employee Id"></Label>
+               <Input id="oIpEmpId" showValueHelp="true" valueHelpRequest="onPressVH"></Input>
 
             </f:content>
-         </f:SimpleForm> -->
+         </f:SimpleForm>
 
 
-         <Table class="sapUiSmallMargin" width="auto" items="{oModel>/EmployeeSet}">
+         <!-- <Table class="sapUiSmallMargin" width="auto" items="{oModel>/EmployeeSet}">
             <headerToolbar>
                <Toolbar >
                   <Title text="Employee Details"></Title>
@@ -69,7 +47,7 @@
                   <ObjectStatus text="{oModel>Status}" state="{path:'oModel>Status', formatter:'.f.formatStatus'}" inverted="true" icon="{path:'oModel>Status', formatter:'.f.formatIcon'}"></ObjectStatus>
                </ColumnListItem>
             </items>
-         </Table>
+         </Table> -->
 
       </content>
       <footer>

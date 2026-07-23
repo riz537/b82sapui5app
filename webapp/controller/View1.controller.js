@@ -2,12 +2,13 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
     "sap/ui/model/json/JSONModel",
-    "com/demo/b82sapui5app/model/formatter"
-], (Controller, MessageBox, JSONModel, formatter) => {
+    "com/demo/b82sapui5app/model/formatter",
+    "sap/m/Dialog"
+], (Controller, MessageBox, JSONModel, formatter, Dialog) => {
     "use strict";
 
     return Controller.extend("com.demo.b82sapui5app.controller.View1", {
-        f:formatter,
+        f: formatter,
         onInit() {
             var oModel = this.getOwnerComponent().getModel("oModel");
             var empModel = new JSONModel();
@@ -37,27 +38,21 @@ sap.ui.define([
         onPress: function () {
             this.getOwnerComponent().getRouter().navTo("RouteView2");
         },
-        onSubmit: function () {
-            // code to read data from multi value UI elements
-            var selValue = this.getView().byId("oSel").getSelectedKey();
-            var cbValue = this.getView().byId("oCB").getSelectedKey();
-            var mcbValue = this.getView().byId("oMCB").getSelectedKeys();
-            var rbgValue = this.getView().byId("oRBG").getSelectedIndex();    
+
+        onPressVH: function () {
+            if (this.dialog === undefined) {
+                this.dialog = sap.ui.xmlfragment(this.getView().getId(), "com.demo.b82sapui5app.fragments.EmpIdF4Help", this);
+                this.getView().addDependent(this.dialog);
+            }
+            this.dialog.open();
         },
-        onSelectChange:function(){
-             var selValue = this.getView().byId("oSel").getSelectedKey();
-             if(selValue === "JAGADEESH"){
-               this.getView().byId("oCB").setEnabled(false);
-             }
+        onCloseDialog: function () {
+            this.dialog.close();
         },
-        onSelFromCB:function(){
-             var cbValue = this.getView().byId("oCB").getSelectedKey();
-        },
-        onSelFromMCB:function(){
-             var mcbValue = this.getView().byId("oMCB").getSelectedKeys();
-        },
-        onSelectFromRBG:function(){
-             var rbgValue = this.getView().byId("oRBG").getSelectedIndex();
+        onPressRow: function (oEvent) {
+            var empId = oEvent.getSource().getBindingContext("oModel").getObject().Empid;
+            this.dialog.close();
+            this.byId("oIpEmpId").setValue(empId);
         }
     });
 });
