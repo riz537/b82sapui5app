@@ -6,19 +6,12 @@
    xmlns:core="sap.ui.core">
    <Page title="I am View1">
       <content>
-         <f:SimpleForm id="idSimpleForm" title="Multi value UI elements Demo" layout="ResponsiveGridLayout" editable="true" labelSpanL="3" labelSpanM="3" emptySpanL="5" emptySpanM="5" >
-            <f:content>
-               <Label text="Employee Id"></Label>
-               <Input id="oIpEmpId" showValueHelp="true" valueHelpRequest="onPressVH"></Input>
-
-            </f:content>
-         </f:SimpleForm>
-
-
-         <!-- <Table class="sapUiSmallMargin" width="auto" items="{oModel>/EmployeeSet}">
+         <Table id="oEmpTable" class="sapUiSmallMargin" width="auto" items="{oModel>/EmployeeSet}" mode="MultiSelect">
             <headerToolbar>
                <Toolbar >
                   <Title text="Employee Details"></Title>
+                  <ToolbarSpacer ></ToolbarSpacer>
+                  <Button text="Get Selected Emp ID" type="Emphasized" press="onPressGetEmpId(s)"></Button>
                </Toolbar>
             </headerToolbar>
             <columns>
@@ -39,7 +32,7 @@
                </Column>
             </columns>
             <items>
-               <ColumnListItem >
+               <ColumnListItem type="Navigation" press="onPress">
                   <Text text="{oModel>Empid}"></Text>
                   <Text text="{oModel>Name}"></Text>
                   <Text text="{path:'oModel>Desig', formatter:'.f.formatDesig'}"></Text>
@@ -47,8 +40,7 @@
                   <ObjectStatus text="{oModel>Status}" state="{path:'oModel>Status', formatter:'.f.formatStatus'}" inverted="true" icon="{path:'oModel>Status', formatter:'.f.formatIcon'}"></ObjectStatus>
                </ColumnListItem>
             </items>
-         </Table> -->
-
+         </Table>
       </content>
       <footer>
          <Bar >

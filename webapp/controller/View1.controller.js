@@ -53,6 +53,24 @@ sap.ui.define([
             var empId = oEvent.getSource().getBindingContext("oModel").getObject().Empid;
             this.dialog.close();
             this.byId("oIpEmpId").setValue(empId);
+        },
+        onPress: function (oEvent) {
+            var empId = oEvent.getSource().getBindingContext("oModel").getObject().Empid;
+        },
+        onPressGetEmpId: function () {
+            var aSelRows = this.byId("oEmpTable").getSelectedItems();
+            var selEmpIds = "";
+            if (aSelRows.length === 0) {
+                MessageBox.error("Hey Mr, Please select atleast one record");
+            }
+            else {
+                for (var i = 0; i < aSelRows.length; i++) {
+                    var empId = aSelRows[i].getBindingContext("oModel").getObject().Empid;
+                    selEmpIds = selEmpIds + "," + empId;
+                }
+                MessageBox.success(selEmpIds);
+            }
+
         }
     });
 });
