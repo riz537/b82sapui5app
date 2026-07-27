@@ -6,6 +6,23 @@
    xmlns:core="sap.ui.core">
    <Page title="I am View1">
       <content>
+         <Panel headerText="Search Employees" expandable="true" expanded="true">
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="3" emptySpanL="5">
+               <f:content>
+                  <Label text="Employee Id"></Label>
+                  <Input id="oIpEmpId" showValueHelp="true" valueHelpRequest="onPressVH"></Input>
+               </f:content>
+            </f:SimpleForm>
+            <FlexBox justifyContent="End">
+               <Button text="Go" icon="sap-icon://accept" type="Accept" press="onPressGo"></Button>
+               <Button text="Reset" icon="sap-icon://reset" type="Reject" class="sapUiTinyMarginBegin" press="onReset"></Button>
+            </FlexBox>
+
+
+         </Panel>
+
+
+
          <Table id="oEmpTable" class="sapUiSmallMargin" width="auto" items="{oModel>/EmployeeSet}" mode="MultiSelect">
             <headerToolbar>
                <Toolbar >
@@ -36,7 +53,7 @@
                   <Text text="{oModel>Empid}"></Text>
                   <Text text="{oModel>Name}"></Text>
                   <Text text="{path:'oModel>Desig', formatter:'.f.formatDesig'}"></Text>
-                  <Text text="{oModel>Email}" ></Text>
+                  <Text text="{oModel>Email}"></Text>
                   <ObjectStatus text="{oModel>Status}" state="{path:'oModel>Status', formatter:'.f.formatStatus'}" inverted="true" icon="{path:'oModel>Status', formatter:'.f.formatIcon'}"></ObjectStatus>
                </ColumnListItem>
             </items>

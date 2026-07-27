@@ -3,8 +3,9 @@ sap.ui.define([
     "sap/m/MessageBox",
     "sap/ui/model/json/JSONModel",
     "com/demo/b82sapui5app/model/formatter",
+    "sap/ui/model/Filter",
     "sap/m/Dialog"
-], (Controller, MessageBox, JSONModel, formatter, Dialog) => {
+], (Controller, MessageBox, JSONModel, formatter,Filter, Dialog) => {
     "use strict";
 
     return Controller.extend("com.demo.b82sapui5app.controller.View1", {
@@ -71,6 +72,20 @@ sap.ui.define([
                 MessageBox.success(selEmpIds);
             }
 
+        },
+        onPressGo:function(){
+            var aFilters = [];
+            var empId = this.byId("oIpEmpId").getValue();
+
+            if(empId !==""){
+                aFilters.push(new Filter("Empid","EQ",empId));
+            }
+            this.byId("oEmpTable").getBinding("items").filter(aFilters);
+
+        },
+        onReset:function(){
+            this.byId("oIpEmpId").setValue("");
+            this.byId("oEmpTable").getBinding("items").filter([]);
         }
     });
 });
