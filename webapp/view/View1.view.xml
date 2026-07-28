@@ -7,10 +7,37 @@
    <Page title="I am View1">
       <content>
          <Panel headerText="Search Employees" expandable="true" expanded="true">
-            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="3" emptySpanL="5">
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="3" emptySpanL="0">
                <f:content>
+                  <core:Title text="Filters"></core:Title>
                   <Label text="Employee Id"></Label>
                   <Input id="oIpEmpId" showValueHelp="true" valueHelpRequest="onPressVH"></Input>
+                  <Label text="Salary"></Label>
+                  <ComboBox id="oSelOpr">
+                     <items>
+                        <core:Item text="Equals" key="EQ"></core:Item>
+                        <core:Item text="Greater than" key="GT"></core:Item>
+                        <core:Item text="Less than" key="LT"></core:Item>
+                     </items>
+                  </ComboBox>
+                  <Input id="oIpSalary"></Input>
+                  <core:Title text="Sorters"></core:Title>
+                  <Label text="Sort Field"></Label>
+                  <ComboBox id="oCBSortField">
+                     <items>
+                        <core:Item text="Employee Id" key="Empid"></core:Item>
+                        <core:Item text="Employee Name" key="Name"></core:Item>
+                        <core:Item text="Designation" key="Desig"></core:Item>
+                        <core:Item text="Salary" key="Salary"></core:Item>
+                     </items>
+                  </ComboBox>
+                  <Label text="Sort Order"></Label>
+                  <RadioButtonGroup id="oRbgSortOrder" columns="2" selectedIndex="-1">
+                     <buttons>
+                        <RadioButton text="Ascending"></RadioButton>
+                        <RadioButton text="Descending"></RadioButton>
+                     </buttons>
+                  </RadioButtonGroup>
                </f:content>
             </f:SimpleForm>
             <FlexBox justifyContent="End">
@@ -40,6 +67,9 @@
                   <Text text="Email"></Text>
                </Column>
                <Column>
+                  <Text text="Salary"></Text>
+               </Column>
+               <Column>
                   <Text text="Status"></Text>
                </Column>
             </columns>
@@ -49,6 +79,7 @@
                   <Text text="{oModel>Name}"></Text>
                   <Text text="{path:'oModel>Desig', formatter:'.f.formatDesig'}"></Text>
                   <Text text="{oModel>Email}"></Text>
+                  <Text text="{oModel>Salary}"></Text>
                   <ObjectStatus text="{oModel>Status}" state="{path:'oModel>Status', formatter:'.f.formatStatus'}" inverted="true" icon="{path:'oModel>Status', formatter:'.f.formatIcon'}"></ObjectStatus>
                </ColumnListItem>
             </items>

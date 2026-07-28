@@ -4,8 +4,9 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "com/demo/b82sapui5app/model/formatter",
     "sap/ui/model/Filter",
+    "sap/ui/model/Sorter",
     "sap/m/Dialog"
-], (Controller, MessageBox, JSONModel, formatter,Filter, Dialog) => {
+], (Controller, MessageBox, JSONModel, formatter, Filter, Sorter, Dialog) => {
     "use strict";
 
     return Controller.extend("com.demo.b82sapui5app.controller.View1", {
@@ -73,19 +74,42 @@ sap.ui.define([
             }
 
         },
-        onPressGo:function(){
+        onPressGo: function () {
             var aFilters = [];
+            var aSorters = [];
             var empId = this.byId("oIpEmpId").getValue();
+            var salOpr = this.byId("oSelOpr").getSelectedKey();
+            var salary = this.byId("oIpSalary").getValue();
 
-            if(empId !==""){
-                aFilters.push(new Filter("Empid","EQ",empId));
+            if (empId !== "") {
+                aFilters.push(new Filter("Empid", "EQ", empId));
+            }
+            if (salOpr !== "" && salOpr !== "") {
+                aFilters.push(new Filter("Salary", salOpr, salary));
             }
             this.byId("oEmpTable").getBinding("items").filter(aFilters);
 
+            // sorting logic
+            var sortField = this.byId("oCBSortField").getSelectedKey();
+            var orderIndex = this.byId("oRbgSortOrder").getSelectedIndex();
+            var secondParam = orderIndex === 0 ? false : true;
+
+            if (sortField !== "" && orderIndex !== -1) {
+                aSorters.push(new Sorter(sortField, secondParam));
+            }
+            this.byId("oEmpTable").getBinding("items").sort(aSorters);
+
+
         },
-        onReset:function(){
+        onReset: function () {
             this.byId("oIpEmpId").setValue("");
+            this.byId("oSelOpr").setSelectedKey("");
+            this.byId("oIpSalary").setValue("");
+            this.byId("oCBSortField").setSelectedKey("");
+            this.byId("oRbgSortOrder").setSelectedIndex(-1);
+
             this.byId("oEmpTable").getBinding("items").filter([]);
+            this.byId("oEmpTable").getBinding("items").sort([]);
         }
     });
 });
