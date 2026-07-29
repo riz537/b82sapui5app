@@ -5,8 +5,9 @@ sap.ui.define([
     "com/demo/b82sapui5app/model/formatter",
     "sap/ui/model/Filter",
     "sap/ui/model/Sorter",
-    "sap/m/Dialog"
-], (Controller, MessageBox, JSONModel, formatter, Filter, Sorter, Dialog) => {
+    "sap/m/Dialog",
+    "sap/ui/export/Spreadsheet"
+], (Controller, MessageBox, JSONModel, formatter, Filter, Sorter, Dialog, Spreadsheet) => {
     "use strict";
 
     return Controller.extend("com.demo.b82sapui5app.controller.View1", {
@@ -89,6 +90,23 @@ sap.ui.define([
             }
             this.byId("oEmpTable").getBinding("items").filter(aFilters);
 
+
+            // Grouping logic should go first 
+
+            var groupField = this.byId("oCBGroupField").getSelectedKey();
+            var groupOrderIndex = this.byId("oRbgGroupOrder").getSelectedIndex();
+            var groupSecondParam = groupOrderIndex === 0 ? false : true;
+
+            if (groupField !== "" && groupOrderIndex !== -1) {
+                aSorters.push(new Sorter(groupField, groupSecondParam, function (oBindingContext) {
+                    var desig = oBindingContext.getObject().Desig;
+                    return {
+                        key: desig,
+                        text: desig
+                    }
+                }));
+            }
+
             // sorting logic
             var sortField = this.byId("oCBSortField").getSelectedKey();
             var orderIndex = this.byId("oRbgSortOrder").getSelectedIndex();
@@ -110,6 +128,46 @@ sap.ui.define([
 
             this.byId("oEmpTable").getBinding("items").filter([]);
             this.byId("oEmpTable").getBinding("items").sort([]);
+        },
+        onExportToExcel: function () {
+            var aCols, oRowBinding, oSettings, oSheet;
+            oRowBinding = this.getView().byId('oEmpTable').getBinding('items');
+            // place your table columns and odata properties
+            aCols = [{
+                label: 'Employee ID',
+                property: 'Empid'
+            }, {
+                label: 'Name',
+                property: 'Name'
+            }, {
+                label: 'Designation',
+                property: 'Desig'
+            }, {
+                label: 'Email',
+                property: 'Email'
+            }, {
+                label: 'Phone.No',
+                property: 'Phone'
+            }, {
+                label: 'Salary',
+                property: 'Salary',
+                type: 'Number',
+                delimiter: true,
+                scale: 2
+            }];
+            oSettings = {
+                workbook: {
+                    columns: aCols
+                },
+                dataSource: oRowBinding,
+                fileName: 'Employees.xlsx',
+                worker: true
+            };
+
+            oSheet = new Spreadsheet(oSettings);
+            oSheet.build().finally(function () {
+                oSheet.destroy();
+            });
         }
     });
 });

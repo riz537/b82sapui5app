@@ -7,7 +7,7 @@
    <Page title="I am View1">
       <content>
          <Panel headerText="Search Employees" expandable="true" expanded="true">
-            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="3" emptySpanL="0">
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="3" emptySpanL="0" columnsL="3">
                <f:content>
                   <core:Title text="Filters"></core:Title>
                   <Label text="Employee Id"></Label>
@@ -38,6 +38,20 @@
                         <RadioButton text="Descending"></RadioButton>
                      </buttons>
                   </RadioButtonGroup>
+                   <core:Title text="Group"></core:Title>
+                  <Label text="Group Field"></Label>
+                  <ComboBox id="oCBGroupField">
+                     <items>
+                        <core:Item text="Designation" key="Desig"></core:Item>
+                     </items>
+                  </ComboBox>
+                  <Label text="Group Order"></Label>
+                  <RadioButtonGroup id="oRbgGroupOrder" columns="2" selectedIndex="-1">
+                     <buttons>
+                        <RadioButton text="Ascending"></RadioButton>
+                        <RadioButton text="Descending"></RadioButton>
+                     </buttons>
+                  </RadioButtonGroup>
                </f:content>
             </f:SimpleForm>
             <FlexBox justifyContent="End">
@@ -50,7 +64,7 @@
                <Toolbar >
                   <Title text="Employee Details"></Title>
                   <ToolbarSpacer ></ToolbarSpacer>
-                  <Button text="Get Selected Emp ID" type="Emphasized" press="onPressGetEmpId(s)"></Button>
+                  <Button icon="sap-icon://excel-attachment" type="Emphasized" press="onExportToExcel"></Button>
                </Toolbar>
             </headerToolbar>
             <columns>
