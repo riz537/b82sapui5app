@@ -62,11 +62,6 @@ sap.ui.define([
             this.getOwnerComponent().getRouter().navTo("RouteView2",{
                 key:empId 
             });
-
-
-            //this.byId("oSFEmpDetails").bindElement("oModel>/EmployeeSet('"+empId+"')");
-
-
         },
         onPressGetEmpId: function () {
             var aSelRows = this.byId("oEmpTable").getSelectedItems();
@@ -81,7 +76,9 @@ sap.ui.define([
                 }
                 MessageBox.success(selEmpIds);
             }
-
+        },
+        onCreateEmp:function(){
+           this.getOwnerComponent().getRouter().navTo("RouteView3");
         },
         onPressGo: function () {
             var aFilters = [];

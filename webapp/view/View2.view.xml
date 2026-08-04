@@ -10,7 +10,7 @@
                     <ObjectAttribute title="Designation" text="{oModel>Desig}"></ObjectAttribute>
                 </attributes>
                 <statuses>
-                    <ObjectStatus text="{oModel>Status}"></ObjectStatus>
+                    <ObjectStatus text="{oModel>Status}" state="{=${oModel>Status} === 'PERMANENT'?'Success':'Error'}" inverted="true"></ObjectStatus>
                 </statuses>
             </ObjectHeader>
             <IconTabBar >

@@ -1,0 +1,37 @@
+<mvc:View controllerName="com.demo.b82sapui5app.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <Page title="Create Employee View" showNavButton="true" navButtonPress="onBackPress">
+        <content>
+            <f:SimpleForm title="Enter Employee Details" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="5" emptySpanM="5">
+                <f:content>
+                    <Label text="Employee ID" required="true"></Label>
+                    <Input id="oIpEmpId"></Input>
+                    <Label text="Name" required="true"></Label>
+                    <Input id="oIpName"></Input>
+                    <Label text="Designation" required="true"></Label>
+                    <Input id="oIpDesig"></Input>
+                    <Label text="Email" required="true"></Label>
+                    <Input id="oIpEmail"></Input>
+                    <Label text="Phone No." required="true"></Label>
+                    <Input id="oIpPhone"></Input>
+                    <Label text="Salary" required="true"></Label>
+                    <Input id="oIpSalary"></Input>
+                    <Label text="Status" required="true"></Label>
+                    <Input id="oIpStatus"></Input>
+                    <Label text="Rating" required="true"></Label>
+                    <Input id="oIpRating"></Input>
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button text="Save" press="onPressSave" type="Accept"></Button>
+                    <Button text="Cancel" press="onPressBack" type="Reject"></Button>
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

@@ -64,6 +64,7 @@
                <Toolbar >
                   <Title text="Employee Details"></Title>
                   <ToolbarSpacer ></ToolbarSpacer>
+                  <Button text="Create Employee" icon="sap-icon://add" press="onCreateEmp" type="Emphasized"></Button>
                   <Button icon="sap-icon://excel-attachment" type="Emphasized" press="onExportToExcel"></Button>
                </Toolbar>
             </headerToolbar>
