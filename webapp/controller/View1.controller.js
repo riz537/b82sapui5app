@@ -38,9 +38,9 @@ sap.ui.define([
                 }.bind(this)
             });
         },
-        onPress: function () {
-            this.getOwnerComponent().getRouter().navTo("RouteView2");
-        },
+        // onPress: function () {
+        //     this.getOwnerComponent().getRouter().navTo("RouteView2");
+        // },
 
         onPressVH: function () {
             if (this.dialog === undefined) {
@@ -59,6 +59,14 @@ sap.ui.define([
         },
         onPress: function (oEvent) {
             var empId = oEvent.getSource().getBindingContext("oModel").getObject().Empid;
+            this.getOwnerComponent().getRouter().navTo("RouteView2",{
+                key:empId 
+            });
+
+
+            //this.byId("oSFEmpDetails").bindElement("oModel>/EmployeeSet('"+empId+"')");
+
+
         },
         onPressGetEmpId: function () {
             var aSelRows = this.byId("oEmpTable").getSelectedItems();

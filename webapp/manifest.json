@@ -99,7 +99,7 @@
         },
         {
           "name": "RouteView2",
-          "pattern": "view2",
+          "pattern": "view2/{key}",
           "target": [
             "TargetView2"
           ]
