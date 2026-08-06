@@ -80,6 +80,24 @@ sap.ui.define([
         onCreateEmp:function(){
            this.getOwnerComponent().getRouter().navTo("RouteView3");
         },
+        onEditEmp:function(){
+           var empId = this.byId("oEmpTable").getSelectedItem().getBindingContext("oModel").getObject().Empid;
+           this.getOwnerComponent().getRouter().navTo("RouteView4",{
+              key: empId
+           });
+        },
+        onDeleteEmp:function(){
+            var empId = this.byId("oEmpTable").getSelectedItem().getBindingContext("oModel").getObject().Empid;
+            var oModel = this.getOwnerComponent().getModel("oModel");
+            oModel.remove("/EmployeeSet('"+empId+"')", {
+                success: function (req, res) {
+                    MessageBox.success("Employee Deleted Successfully");
+                },
+                error: function (oError) {
+                    MessageBox.error(JSON.parse(oError.responseText).error.message.value);
+                }
+            });
+        },
         onPressGo: function () {
             var aFilters = [];
             var aSorters = [];

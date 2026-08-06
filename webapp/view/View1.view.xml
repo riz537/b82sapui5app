@@ -59,12 +59,14 @@
                <Button text="Reset" icon="sap-icon://reset" type="Reject" class="sapUiTinyMarginBegin" press="onReset"></Button>
             </FlexBox>
          </Panel>
-         <Table id="oEmpTable" class="sapUiSmallMargin" width="auto" items="{oModel>/EmployeeSet}" mode="MultiSelect">
+         <Table id="oEmpTable" class="sapUiSmallMargin" width="auto" items="{oModel>/EmployeeSet}" mode="SingleSelectLeft">
             <headerToolbar>
                <Toolbar >
                   <Title text="Employee Details"></Title>
                   <ToolbarSpacer ></ToolbarSpacer>
                   <Button text="Create Employee" icon="sap-icon://add" press="onCreateEmp" type="Emphasized"></Button>
+                  <Button text="Edit Employee" icon="sap-icon://edit" press="onEditEmp" type="Emphasized"></Button>
+                  <Button text="Delete Employee" icon="sap-icon://delete" press="onDeleteEmp" type="Reject"></Button>
                   <Button icon="sap-icon://excel-attachment" type="Emphasized" press="onExportToExcel"></Button>
                </Toolbar>
             </headerToolbar>
