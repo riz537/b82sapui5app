@@ -24,6 +24,42 @@
                     <Input id="oIpRating"></Input>
                 </f:content>
             </f:SimpleForm>
+
+            <Table class="sapUiSmallMargin" width="auto" items="{certModel>/aCerts}">
+                <headerToolbar>
+                    <Toolbar >
+                        <Title text="Add Certification Details"></Title>
+                        <ToolbarSpacer ></ToolbarSpacer>
+                        <Button icon="sap-icon://add" type="Emphasized" press="onAddRow"></Button>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column >
+                        <Text text="Employee Id"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Certification Code"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Certification Description"></Text>
+                    </Column>
+                    <Column >
+                        <Text text="Skill"></Text>
+                    </Column>
+                     <Column >
+                        <Text text=""></Text>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem >
+                        <Input value="{certModel>Empid}"></Input>
+                        <Input value="{certModel>Code}"></Input>
+                        <Input value="{certModel>Desc}"></Input>
+                        <Input value="{certModel>Skill}"></Input>
+                        <Button icon="sap-icon://delete" type="Reject" press="onDeleteRow"></Button>
+                    </ColumnListItem>
+                </items>
+            </Table>
         </content>
         <footer>
             <Bar>

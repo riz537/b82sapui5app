@@ -1,18 +1,31 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageBox"
-], (Controller, MessageBox) => {
+    "sap/m/MessageBox",
+    "sap/ui/model/json/JSONModel"
+], (Controller, MessageBox, JSONModel) => {
     "use strict";
 
     return Controller.extend("com.demo.b82sapui5app.controller.View3", {
-        // onInit() {
-        //     this.getOwnerComponent().getRouter().getRoute("RouteView2").attachPatternMatched(this.onPatternMatched,this);
-        // },
-        // onPatternMatched:function(oEvent){
-        //     var empId =  oEvent.getParameter("arguments").key;
-        //     this.getView().bindElement("oModel>/EmployeeSet('"+empId+"')");
-
-        // },
+        onInit() {
+            this.certModel = new JSONModel({
+                aCerts: []
+            });
+            this.getView().setModel(this.certModel, "certModel");
+        },
+        onAddRow: function () {
+            this.certModel.getData().aCerts.push({
+                Empid: "",
+                Code: "",
+                Desc: "",
+                Skill: ""
+            });
+            this.certModel.refresh(true);
+        },
+        onDeleteRow:function(oEvent){
+            var index = oEvent.getSource().getParent().getBindingContextPath().split("/")[2];
+            this.certModel.getData().aCerts.splice(index,1);
+             this.certModel.refresh(true);
+        },
         onBackPress: function () {
             // this.getOwnerComponent().getRouter().navTo("RouteView1");
             history.go(-1);
