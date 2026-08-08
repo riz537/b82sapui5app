@@ -30,9 +30,38 @@
                                 <Text text="{oModel>Salary}"></Text>
                                 <Label text="Rating"></Label>
                                 <Text text="{oModel>Rating}"></Text>
-
                             </f:content>
                         </f:SimpleForm>
+                    </IconTabFilter>
+                    <IconTabFilter icon="sap-icon://validate">
+                        <Table class="sapUiSmallMargin" width="auto" items="{oModel>toCertifications}">
+                            <columns>
+                                <Column >
+                                    <Text text="Employee Id"></Text>
+                                </Column>
+                                <Column >
+                                    <Text text="Certification Code"></Text>
+                                </Column>
+                                <Column >
+                                    <Text text="Certification Description"></Text>
+                                </Column>
+                                <Column >
+                                    <Text text="Skill"></Text>
+                                </Column>
+                                <Column >
+                                    <Text text=""></Text>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem >
+                                    <Text text="{oModel>Empid}"></Text>
+                                    <Text text="{oModel>Code}"></Text>
+                                    <Text text="{oModel>Descr}"></Text>
+                                    <Text text="{oModel>Skill}"></Text>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+
                     </IconTabFilter>
                 </items>
 

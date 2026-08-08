@@ -16,7 +16,7 @@ sap.ui.define([
             this.certModel.getData().aCerts.push({
                 Empid: "",
                 Code: "",
-                Desc: "",
+                Descr: "",
                 Skill: ""
             });
             this.certModel.refresh(true);
@@ -51,7 +51,8 @@ sap.ui.define([
                 Phone: phone,
                 Salary: salary,
                 Status: status,
-                Rating: parseInt(rating)
+                Rating: parseInt(rating),
+                toCertifications: this.certModel.getData().aCerts
             };
 
             var oModel = this.getOwnerComponent().getModel("oModel");

@@ -54,7 +54,7 @@
                     <ColumnListItem >
                         <Input value="{certModel>Empid}"></Input>
                         <Input value="{certModel>Code}"></Input>
-                        <Input value="{certModel>Desc}"></Input>
+                        <Input value="{certModel>Descr}"></Input>
                         <Input value="{certModel>Skill}"></Input>
                         <Button icon="sap-icon://delete" type="Reject" press="onDeleteRow"></Button>
                     </ColumnListItem>
